@@ -14,3 +14,13 @@
         flex-direction: column;
     }
 }
+
+.menuTitle{
+    margin-top:100px;
+    position: absolute;
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 5px 5px black;
+    text-decoration: underline;
+}

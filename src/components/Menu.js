@@ -6,14 +6,7 @@ import MenuItem from "./MenuItem";
 import Checkout from "./Checkout";
 import {connect} from "react-redux";
 import {addToCart} from "../actions/actions"
-const posts = [
-    {id: 1, content: 'Hello World', title: 'Pasta', price: 10},
-    {id: 2, content: 'Installation', title: 'Burger', price: 10},
-    {id: 3, content: 'Hello World', title: 'Pizza', price: 20},
-    {id: 4, content: 'Hello World', title: 'Fries', price: 30},
-    {id: 5, content: 'Installation', title: 'Hashbrown', price: 40},
-
-];
+import Image from "react-bootstrap/Image";
 
 function Menu(props) {
 
@@ -21,7 +14,7 @@ function Menu(props) {
         <div className="Menu">
             <NavbarApp/>
             <div className={"menuTitle"}>MENU ITEMS</div>
-
+            <Image src="menutitle.jpg" fluid />
             <div className={"MenuContainer"}>
                 <ListGroup>
                     {

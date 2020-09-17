@@ -9,7 +9,7 @@ function MyModal(props) {
     return (
             <Modal show={props.show} onHide={props.handleClose}>
                 <Modal.Header >
-                    <Modal.Title>MyModal heading</Modal.Title>
+                    <Modal.Title>{props.title}</Modal.Title>
                 </Modal.Header >
                 <Modal.Body>{props.content}</Modal.Body>
                 <Modal.Footer>

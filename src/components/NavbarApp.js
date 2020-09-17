@@ -28,7 +28,7 @@ function NavbarApp(props) {
         <div>
             <Navbar expand="lg" variant={"dark"} style={{backgroundColor:"black"}}>
 
-                <Link to={'/'}><Navbar.Brand style={{backgroundColor:"black"}}>RestoEat</Navbar.Brand></Link>
+                <Link to={'/'}><Navbar.Brand style={{backgroundColor:"black"}}>Dharti's International chicken</Navbar.Brand></Link>
 
 
                 <Navbar.Collapse id="basic-navbar-nav">

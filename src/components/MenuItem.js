@@ -30,7 +30,7 @@ function MenuItem(props) {
             </ListGroup.Item>
 
         </ListGroup>
-            <MyModal show={show} content={props.content} handleSaveChanges={handleSaveChanges.bind(this)} handleClose={handleClose.bind(this)}/>
+            <MyModal show={show} title={props.title} content={props.content} handleSaveChanges={handleSaveChanges.bind(this)} handleClose={handleClose.bind(this)}/>
         </>
     );
 }
