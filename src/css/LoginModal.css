@@ -1,0 +1,25 @@
+.Modal{
+
+    text-align: center;
+}
+.loginCard{
+    width: 100%;
+    display: flex;
+}
+.loginWith{
+    display: flex;
+    width: 100%;
+    margin: 0 auto 0 auto;
+    cursor: pointer;
+
+}
+
+.continueWith{
+    font-weight: bold;
+    margin: 0 auto 0 0;
+
+}
+.or{
+    margin: 10px 50% 10px 50%;
+    font-weight:bold ;
+}

@@ -1,0 +1,10 @@
+.checkout{
+    width: 18rem;
+    height: fit-content;
+    margin: 10px;
+}
+
+.paymentContainer{
+    width: 80%;
+    margin: 10%;
+}

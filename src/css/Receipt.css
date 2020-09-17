@@ -1,0 +1,13 @@
+.receiptContainer   {
+    width: 18rem;
+    height: fit-content;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto auto auto;
+
+}
+
+.link{
+    align-self: center;
+}

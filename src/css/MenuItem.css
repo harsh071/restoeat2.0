@@ -1,0 +1,37 @@
+
+
+.listContent{
+    margin: 10px;
+    width: 100%;
+
+
+}
+.listItem{
+    display: grid;
+    grid-template-columns: 20% 50% 20%;
+    height: fit-content;
+    text-align: left;
+
+}
+.listContentDesc{
+    width: 95%;
+
+}
+.listPrice{
+    margin-left: 100px;
+}
+
+.listItemCont{
+    box-shadow: 5px 5px #bababa;
+    transition-duration: 0.4s;
+}
+
+.listItemCont:hover{
+    box-shadow: 2.5px 2.5px #bababa;
+
+}
+
+.menuTitle{
+    width: 100%;
+    height: fit-content;
+}
