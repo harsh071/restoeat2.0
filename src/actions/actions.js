@@ -13,6 +13,8 @@ export function removeFromCart(item) {
         item
     }
 }
+
+
 export function emailAddress(item) {
     return {
         type: 'EMAIL_ADDRESS',

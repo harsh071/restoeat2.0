@@ -5,12 +5,38 @@ import Card from "react-bootstrap/Card";
 import CheckoutItem from "./CheckoutItem";
 import {Link , useLocation} from "react-router-dom";
 import {connect} from "react-redux";
-import {removeFromCart} from "../actions/actions"
+import {removeFromCart,addToCart} from "../actions/actions"
 import Button from "react-bootstrap/Button";
+import { bindActionCreators } from 'redux'
+import _ from "lodash"
 function Checkout(props) {
     const total = () => props.cartItems.reduce((total,item) => {
-        return total + item.price
+        return total + (item.price * item.quantity)
     },0)
+    const decr = (item) => {
+        for (let i = 0; i < props.cartItems.length; i++) {
+            if(item.title === props.cartItems[i].title){
+                let tempItem = _.cloneDeep(item)
+
+                tempItem['quantity'] = --tempItem.quantity;
+                props.removeFromCart(item)
+                if(tempItem.quantity !== 0) {
+                    props.addToCart(tempItem)
+                }
+            }
+        }
+    }
+    const incr = (item) => {
+        for (let i = 0; i < props.cartItems.length; i++) {
+            if(item.title === props.cartItems[i].title){
+                let tempItem = _.cloneDeep(item)
+
+                tempItem['quantity'] = ++tempItem.quantity;
+                props.removeFromCart(item)
+                props.addToCart(tempItem)
+            }
+        }
+    }
 
     return (
         <>
@@ -21,24 +47,23 @@ function Checkout(props) {
                     <Card.Text>
                         {props.cartItems.length === 0 ? "Cart is empty": "Cart Items"}
                     </Card.Text>
+
                 </Card.Body>
                 <ListGroup className="list-group-flush">
-                    {props.cartItems.map((item,i)=><CheckoutItem key={i} id={item.id} title={item.title} content={item.content} quantity={item.quantity} price={item.price} receipt={props.receipt} index={i} removeFromCart={props.removeFromCart}/>)}
+                    {props.cartItems.map((item,i)=><CheckoutItem key={i} id={item.id} item={item} title={item.title} decr={decr} incr={incr} quantity={item.quantity}  content={item.content} quantity={item.quantity} price={item.price} receipt={props.receipt} index={i} removeFromCart={props.removeFromCart}/>)}
                 </ListGroup>
 
                 <Card.Body>
-                    <Card.Text>
-                        <div style={{fontWeight:"bold",marginTop:"10px"}}>
+                    <Card.Text style={{fontWeight:"bold",marginTop:"10px"}}>
                             Total : ${total()}
-                        </div>
                     </Card.Text>
                     <Link to={"Payment"}>
-                        { useLocation().pathname === "/Menu" ? <Card.Link>{props.cartItems.length === 0 ? "" :
+                        { useLocation().pathname === "/Menu" ? <>{props.cartItems.length === 0 ? "" :
                             <Button style={{width:"100%"}} variant="primary" type="submit" >
                                 Checkout
                             </Button>
-                        }</Card.Link>
-                           :  <Card.Link>{" "}</Card.Link>}
+                        }</>
+                           :  <>{" "}</>}
                     </Link>
 
                 </Card.Body>
@@ -49,16 +74,16 @@ function Checkout(props) {
 
 function mapStateToProps (state) {
     return {
-        cartItems: state.cart
+        cartItems: state.cartReducer.cart
     }
 }
 
-function mapDispatchToProps(dispatch){
+const mapDispatchToProps = (dispatch) => {
     return {
-        removeFromCart: (item) => {
-            dispatch(removeFromCart(item))
-        }
+        dispatch,
+        ...bindActionCreators({addToCart, removeFromCart}, dispatch)
     }
 }
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(Checkout);

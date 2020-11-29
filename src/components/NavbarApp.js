@@ -36,7 +36,7 @@ function NavbarApp(props) {
                             <Nav style={{backgroundColor:"black", borderLeft:"1px solid white"}} className="mr-auto">
                                 <Navbar.Text style={{margin:"0px 8px"}}>
                                     <Link to={"/Menu"}>
-                                        <a>Menu</a>
+                                        <>Menu</>
                                     </Link>
                                 </Navbar.Text>
                             </Nav>
@@ -59,11 +59,11 @@ function NavbarApp(props) {
                         : <div></div>}
                     <Navbar.Collapse className="justify-content-end">
                         {!loggedIn ? <Navbar.Text style={{color:"white",cursor: "pointer",paddingTop:"0px",paddingBottom:"0px",paddingLeft: "15px",paddingRight: "15px",borderLeft:"1px solid white"}} onClick={() => clickLogin()}>
-                            <div style={{ padding:" 05px 12px",borderLeft:"1px solid white",boxShadow:"2px 2px #F5DEB3", borderRadius:"10px"}}>Login.</div>
+                            <div style={{ padding:" 05px 12px", borderRadius:"10px"}}>Login.</div>
                         </Navbar.Text> : <></>}
                         <Navbar.Text style={{paddingLeft: "15px", borderLeft:"1px solid white"}}>
                             <Link to={"/Payment"}>
-                                <a>View Cart</a>
+                                <>View Cart</>
                             </Link>
                         </Navbar.Text>
                     </Navbar.Collapse>

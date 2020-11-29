@@ -1,24 +1,29 @@
-.checkout{
-    width: 18rem;
-    height: fit-content;
-    margin: 10px;
-}
 
 .checkoutContainer{
     display: grid;
-    grid-template-columns: auto auto  auto ;
+    grid-template-columns: auto auto;
+}
+.innerContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .checkoutItem{
     margin: 5px;
-    height: 10px;
+    height: 31px;
     width: fit-content;
+    display: flex;
+    align-items: center;
 }
 
 .removeButton{
     border-radius: 100%;
-    height: fit-content;
+    height: 31px;
     width: fit-content;
-    margin-left: auto;
-
+    display: flex;
+    align-items: center;
+}
+.quantityButton{
+    height: 26px;
 }

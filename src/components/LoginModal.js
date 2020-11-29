@@ -27,7 +27,7 @@ function LoginModal(props) {
     }
     return (
         <>{!props.loggedIn ?
-            <Modal show={props.show} onHide={props.handleClose}>
+            <Modal show={props.show} onHide={props.handleClose} centered>
                 <Modal.Header>
                     <Modal.Title style={{cursor: "pointer"}} onClick={props.handleClose}>
                         <FontAwesomeIcon icon={faTimesCircle} size="lg"/>
@@ -89,7 +89,7 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
     return {
-        loggedIn: state.loggedIn,
+        loggedIn: state.cartReducer.loggedIn,
     }
 }
 

@@ -4,6 +4,8 @@ import Home from "./components/Home";
 import Menu from "./components/Menu";
 import Payment from "./components/Payment";
 import Receipt from "./components/Receipt";
+import { createStore } from 'redux'
+import reducer from './reducers/index'
 
 
 function App() {

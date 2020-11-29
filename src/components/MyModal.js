@@ -7,7 +7,7 @@ import Modal from "react-bootstrap/Modal";
 function MyModal(props) {
 
     return (
-            <Modal show={props.show} onHide={props.handleClose}>
+            <Modal show={props.show} onHide={props.handleClose} centered >
                 <Modal.Header >
                     <Modal.Title>{props.title}</Modal.Title>
                 </Modal.Header >

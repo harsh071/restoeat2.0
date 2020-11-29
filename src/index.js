@@ -6,11 +6,10 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import App from "./App";
 
 import {Provider} from "react-redux";
-import cartReducer from './reducers/cart-reducer'
+import reducer from './reducers/index'
 import {createStore} from "redux";
 
-
-const store = createStore(cartReducer);
+const store = createStore(reducer);
 
 ReactDOM.render(
   <React.StrictMode>

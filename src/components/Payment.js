@@ -65,9 +65,9 @@ function Payment(props) {
 
 function mapStateToProps(state) {
     return {
-        email: state.email,
-        deliveryAddress: state.delivery_address,
-        cart: state.cart
+        email: state.cartReducer.email,
+        deliveryAddress: state.cartReducer.delivery_address,
+        cart: state.cartReducer.cart
     }
 }
 

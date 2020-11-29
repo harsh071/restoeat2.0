@@ -22,8 +22,8 @@ function Receipt(props) {
 
 function mapStateToProps(state) {
     return {
-        email: state.email,
-        deliveryAddress: state.delivery_address
+        email: state.cartReducer.email,
+        deliveryAddress: state.cartReducer.delivery_address
     }
 }
 

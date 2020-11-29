@@ -25,7 +25,7 @@ function Email(props) {
 
 function mapStateToProps (state) {
     return {
-        email: state.email,
+        email: state.cartReducer.email,
     }
 }
 
