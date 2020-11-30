@@ -35,16 +35,17 @@ function CheckoutItem(props) {
                     }>
                         {props.quantity}
                     </div>
-                <div className={"quantityButton checkoutItem"}>
-                    <Button size={"sm"} onClick={incr} variant={"dark"}> <FontAwesomeIcon color={"white"} icon={faPlus}
-                                                                                          size="xs"/>
-                    </Button>
-                    <Button size={"sm"} onClick={decr} variant={"dark"}>
+                    {!props.receipt &&<div className={"quantityButton checkoutItem"}>
+                        <Button size={"sm"} onClick={incr} variant={"dark"}> <FontAwesomeIcon color={"white"}
+                                                                                              icon={faPlus}
+                                                                                              size="xs"/>
+                        </Button>
+                        <Button size={"sm"} onClick={decr} variant={"dark"}>
 
-                        <FontAwesomeIcon color={"white"} icon={faMinus} size="xs"/>
+                            <FontAwesomeIcon color={"white"} icon={faMinus} size="xs"/>
 
-                    </Button>
-                </div>
+                        </Button>
+                    </div>}
 
                 <div className={
                     "checkoutItem"
@@ -54,10 +55,10 @@ function CheckoutItem(props) {
                 <div className={
                     "checkoutItem"
                 }>
-                    {!props.receipt ?
+                    {!props.receipt &&
                         <Button className={"removeButton"} variant="transparent" size="sm" onClick={removeItem}>
                             <FontAwesomeIcon color={"gray"} icon={faTimesCircle} size="lg"/>
-                        </Button> : ''}
+                        </Button>}
                 </div>
             </div>
 

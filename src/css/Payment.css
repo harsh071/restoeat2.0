@@ -3,3 +3,9 @@
     height: fit-content;
     margin: 10px;
 }
+.card_info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}

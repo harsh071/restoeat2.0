@@ -39,6 +39,7 @@ function Menu(props) {
         <div className="Menu">
             <NavbarApp/>
             <div className={"menuTitle"}>MENU ITEMS</div>
+
             <Image src="menutitle.jpg" fluid/>
             <div className={"MenuContainer"}>
                 <ListGroup>
@@ -51,6 +52,7 @@ function Menu(props) {
                     }
                 </ListGroup>
                 <Checkout/>
+
             </div>
 
 

@@ -19,7 +19,7 @@ function MenuItem(props) {
 
     return (
         <>
-        <ListGroup style={{width:"650px"}} onClick={show ? handleClose : handleShow}>
+        <ListGroup style={{width:"650px",alignItems:"center"}} onClick={show ? handleClose : handleShow}>
 
             <ListGroup.Item className={"listItemCont"} style={{minWidth:"290px", margin:"10px",width:"90%"}}>
                 <div className={"listItem"}>

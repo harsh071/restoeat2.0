@@ -1,13 +1,30 @@
 .receiptContainer   {
-    width: 18rem;
+    width: 800px;
     height: fit-content;
-    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    margin: 200px auto auto auto;
+    border: 1px solid black;
+    align-items: center;
+}
+
+.receiptDetails{
+    border: 1px solid rgba(0,0,0,.125);
+    height: fit-content;
     display: flex;
     flex-direction: column;
-    margin: 20px auto auto auto;
-
+    padding: 40px;
 }
 
 .link{
     align-self: center;
+    border:1px solid;
+    padding:8px;
+    margin:auto;
+
+}
+
+.link:hover{
+    color:white;
+    background: black;
 }

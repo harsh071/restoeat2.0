@@ -8,9 +8,11 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Button from 'react-bootstrap/Button'
 import {Link} from "react-router-dom";
 import LoginModal from "./LoginModal";
+import AddressModal from "./AddressModal";
 
 function NavbarApp(props) {
     const [show, setShow] = useState(false);
+    const [showAddress, setAddressShow] = useState(false);
     const [loggedIn, setLoggedIn] = useState(false);
     const handleClose = () => {
         setShow(false);
@@ -22,6 +24,13 @@ function NavbarApp(props) {
     }
     const clickLogin = () => {
         setShow(true);
+    }
+    const clickAddress = () => {
+        setAddressShow(true);
+    }
+
+    const handleAddressClose = () => {
+        setAddressShow(false);
     }
 
     return (
@@ -40,14 +49,10 @@ function NavbarApp(props) {
                                     </Link>
                                 </Navbar.Text>
                             </Nav>
-                            <Nav style={{backgroundColor:"black",color:"white",borderLeft:"1px solid white",width:"fit-content"}} className="mr-auto">
-                                <NavDropdown style={{margin:"0px",backgroundColor:"black",color:"white"}}  title={ <Navbar.Text style={{padding:"0px",height:"0px",color:"white"}}>Select Method</Navbar.Text>} id="basic-nav-dropdown">
-                                    <NavDropdown.Item >Pickup/Delivery</NavDropdown.Item>
+                            {!loggedIn ? <Navbar.Text style={{color:"white",cursor: "pointer",paddingTop:"0px",paddingBottom:"0px",paddingLeft: "15px",paddingRight: "15px",borderLeft:"1px solid white"}} onClick={() => clickAddress()}>
+                                <div style={{ padding:" 05px 12px", borderRadius:"10px"}}>Select Address.</div>
+                            </Navbar.Text> : <></>}
 
-                                    <NavDropdown.Item >Reserve Table</NavDropdown.Item>
-                                </NavDropdown>
-
-                            </Nav>
 
                             <Nav style={{backgroundColor:"black",borderLeft:"1px solid white",borderRight:"1px solid white"}} className="mr-auto">
                                 <NavDropdown menuRole="menu" title={ <Navbar.Text style={{padding:"0px",height:"0px",color:"white"}}>Need Help?</Navbar.Text>} id="basic-nav-dropdown">
@@ -70,6 +75,7 @@ function NavbarApp(props) {
                 </Navbar.Collapse>
             </Navbar>
             <LoginModal show={show} handleClose={handleClose} handleLogin={handleLogin}/>
+            <AddressModal show={showAddress} handleClose={handleAddressClose}/>
         </div>
     );
 }

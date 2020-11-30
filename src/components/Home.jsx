@@ -7,8 +7,11 @@ import {Link} from "react-router-dom";
 import {faAngleDoubleUp,faAngleDoubleDown} from "@fortawesome/free-solid-svg-icons/faAngleDoubleDown";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import "../css/Home.css";
+import Form from "react-bootstrap/Form";
+import {connect} from "react-redux";
+import {deliveryAddress, emailAddress} from "../actions/actions";
 
-function Home() {
+function Home(props) {
     const scrooll = () =>{
         window.scroll({
             top: 800,
@@ -24,11 +27,13 @@ function Home() {
                     <h1 style={{textShadow:"5px 5px black",fontSize:"50px",margin:"20px"}}>You Deserve Great Food</h1>
                     <p style={{marginTop:"100px"}}>
                         <Link to={"Menu"}>
-                            <Button  variant="dark" style={{height: "50px", width: "100px", fontSize:"20px",borderColor:"white",borderRadius:"10px"}}>MENU</Button>
+                            <Button  variant="danger" style={{height: "50px", width: "100px", fontSize:"20px",borderColor:"black",borderRadius:"10px",border:"3px solid black"}}>MENU</Button>
                         </Link>
                     </p>
+
                 </Jumbotron>
                 <div className={"scroll"} onClick={scrooll.bind(this)} style={{marginTop: "35px"}}>
+
                     <FontAwesomeIcon icon={faAngleDoubleDown} size="3x" style={{margin: "auto"}}/></div>
                 <Jumbotron fluid style={{fontSize:"20px",display:"flex",flexDirection:"column",justifyContent:"space-around", height: "100%", margin: '0px 100px 10px 100px ', background: "white"}}>
 
@@ -93,4 +98,23 @@ function Home() {
     );
 }
 
-export default Home;
+function mapStateToProps(state) {
+    return {
+        email: state.cartReducer.email,
+        delivery_Address: state.cartReducer.delivery_address,
+        cart: state.cartReducer.cart
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        emailAddress: (item) => {
+            dispatch(emailAddress(item))
+        },
+        deliveryAddress: (item) => {
+            dispatch(deliveryAddress(item))
+        }
+
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
