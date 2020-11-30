@@ -20,7 +20,7 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faTimesCircle} from "@fortawesome/free-solid-svg-icons";
-import {addToCart, removeFromCart} from "../actions/actions";
+import {addToCart, deliveryAddress, removeFromCart} from "../actions/actions";
 import {connect} from "react-redux";
 
 function AddressModal(props) {
@@ -53,7 +53,8 @@ function AddressModal(props) {
 function mapStateToProps(state) {
     return {
         menuItems: state.cartReducer.menuItems,
-        cartItems: state.cartReducer.cart
+        cartItems: state.cartReducer.cart,
+        delivery_Address: state.cartReducer.delivery_address,
     }
 }
 
@@ -64,7 +65,11 @@ function mapDispatchToProps(dispatch) {
         },
         removeFromCart: (item) => {
             dispatch(removeFromCart(item))
+        },
+        deliveryAddress: (item) => {
+            dispatch(deliveryAddress(item))
         }
+
     }
 }
 
