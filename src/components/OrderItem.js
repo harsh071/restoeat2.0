@@ -3,6 +3,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 import "../css/OrderItem.css";
 import Button from "react-bootstrap/Button";
 import MyModal from "./MyModal";
+import OrderModalPopup from "./OrderModalPopup";
 
 function OrderItem(props) {
     const [show, setShow] = useState(false);
@@ -30,7 +31,7 @@ function OrderItem(props) {
                 </div>
 
             </div>
-            <OrderModal show={show} title={props.title} content={props.content} handleSaveChanges={handleSaveChanges.bind(this)} handleClose={handleClose.bind(this)}/>
+            <OrderModalPopup show={show} title={props.title} content={props.content} handleSaveChanges={handleSaveChanges.bind(this)} handleClose={handleClose.bind(this)}/>
         </>
     );
 }
