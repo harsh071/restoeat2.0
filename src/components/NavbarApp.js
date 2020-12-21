@@ -9,6 +9,7 @@ import Button from 'react-bootstrap/Button'
 import {Link} from "react-router-dom";
 import LoginModal from "./LoginModal";
 import AddressModal from "./AddressModal";
+import { useLocation } from 'react-router-dom'
 
 function NavbarApp(props) {
     const [show, setShow] = useState(false);
@@ -32,10 +33,12 @@ function NavbarApp(props) {
     const handleAddressClose = () => {
         setAddressShow(false);
     }
+    const location = useLocation();
+    console.log(location.pathname!=="/receipt")
 
     return (
         <div>
-            <Navbar expand="lg" variant={"dark"} style={{backgroundColor:"black"}}>
+            {location.pathname !== "/receipt" && <Navbar expand="lg" variant={"dark"} style={{backgroundColor:"black"}}>
 
                 <Link to={'/'}><Navbar.Brand style={{backgroundColor:"black"}}>Dharti's International chicken</Navbar.Brand></Link>
 
@@ -52,12 +55,14 @@ function NavbarApp(props) {
                             {!loggedIn ? <Navbar.Text style={{color:"white",cursor: "pointer",paddingTop:"0px",paddingBottom:"0px",paddingLeft: "15px",paddingRight: "15px",borderLeft:"1px solid white"}} onClick={() => clickAddress()}>
                                 <div style={{ padding:" 05px 12px", borderRadius:"10px"}}>Select Address.</div>
                             </Navbar.Text> : <></>}
-
-
                             <Nav style={{backgroundColor:"black",borderLeft:"1px solid white",borderRight:"1px solid white"}} className="mr-auto">
-                                <NavDropdown menuRole="menu" title={ <Navbar.Text style={{padding:"0px",height:"0px",color:"white"}}>Need Help?</Navbar.Text>} id="basic-nav-dropdown">
-                                    <NavDropdown.Item>Call Support</NavDropdown.Item>
-                                    <NavDropdown.Item>Email Support</NavDropdown.Item>
+                                <NavDropdown menuRole="menu" title={ <Navbar.Text style={{padding:"0px",height:"0px",color:"white"}}>ADMIN</Navbar.Text>} id="basic-nav-dropdown">
+                                    <NavDropdown.Item><Link to={"/OrderHistory"}>
+                                        <>Order History</>
+                                    </Link></NavDropdown.Item>
+                                    <NavDropdown.Item><Link to={"/Inventory"}>
+                                        <>Inventory</>
+                                    </Link></NavDropdown.Item>
                                 </NavDropdown>
                             </Nav>
                         </>
@@ -71,11 +76,12 @@ function NavbarApp(props) {
                                 <>View Cart</>
                             </Link>
                         </Navbar.Text>
+
                     </Navbar.Collapse>
                 </Navbar.Collapse>
-            </Navbar>
-            <LoginModal show={show} handleClose={handleClose} handleLogin={handleLogin}/>
-            <AddressModal show={showAddress} handleClose={handleAddressClose}/>
+            </Navbar>}
+            {location.pathname !== "/receipt" &&<LoginModal show={show} handleClose={handleClose} handleLogin={handleLogin}/>}
+            {location.pathname !== "/receipt" && <AddressModal show={showAddress} handleClose={handleAddressClose}/>}
         </div>
     );
 }

@@ -5,7 +5,7 @@ import "../css/Menu.css";
 import MenuItem from "./MenuItem";
 import Checkout from "./Checkout";
 import {connect} from "react-redux";
-import {addToCart, removeFromCart} from "../actions/actions"
+import {addToCart, removeFromCart, addToHistory} from "../actions/actions"
 import Image from "react-bootstrap/Image";
 import _ from "lodash"
 
@@ -37,7 +37,6 @@ function Menu(props) {
     }
     return (
         <div className="Menu">
-            <NavbarApp/>
             <div className={"menuTitle"}>MENU ITEMS</div>
 
             <Image src="menutitle.jpg" fluid/>
@@ -74,6 +73,10 @@ function mapDispatchToProps(dispatch) {
         },
         removeFromCart: (item) => {
             dispatch(removeFromCart(item))
+        },
+
+        addToHistory: (item) => {
+            dispatch(addToHistory(item))
         }
     }
 }

@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 import Checkout from "./Checkout";
 import '../css/Receipt.css'
 import Button from "react-bootstrap/Button";
+import {addToHistory, deliveryAddress, emailAddress,clearCart} from "../actions/actions"
 
 function Receipt(props) {
     return (
@@ -17,7 +18,7 @@ function Receipt(props) {
                 <div>{"THANK YOU FOR ORDERING."}</div>
                 <div>{"Below is your receipt"}</div>
             </div>
-            <Link className="link" to={"/"}>HOME</Link>
+            <Link className="link" to={"/"} onClick={()=>props.clearCart()}>HOME</Link>
 
         </div>
     );
@@ -31,4 +32,13 @@ function mapStateToProps(state) {
 }
 
 
-export default connect(mapStateToProps)(Receipt);
+function mapDispatchToProps(dispatch) {
+    return {
+
+        clearCart: () => {
+            dispatch(clearCart())
+        }
+
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Receipt);

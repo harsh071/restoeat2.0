@@ -5,7 +5,7 @@ import Card from "react-bootstrap/Card";
 import CheckoutItem from "./CheckoutItem";
 import {Link, useLocation} from "react-router-dom";
 import {connect} from "react-redux";
-import {removeFromCart, addToCart} from "../actions/actions"
+import {removeFromCart, addToCart, addToHistory} from "../actions/actions"
 import Button from "react-bootstrap/Button";
 import {bindActionCreators} from 'redux'
 import _ from "lodash"
@@ -23,6 +23,7 @@ function Checkout(props) {
                 props.removeFromCart(item)
                 if (tempItem.quantity !== 0) {
                     props.addToCart(tempItem)
+                    props.addToHistory(tempItem)
                 }
             }
         }
@@ -35,6 +36,8 @@ function Checkout(props) {
                 tempItem['quantity'] = ++tempItem.quantity;
                 props.removeFromCart(item)
                 props.addToCart(tempItem)
+                props.addToHistory(tempItem)
+
             }
         }
     }
@@ -52,7 +55,7 @@ function Checkout(props) {
                 </Card.Body>
                 <ListGroup className="list-group-flush">
                     {props.cartItems.map((item, i) => <CheckoutItem key={i} id={item.id} item={item} title={item.title}
-                                                                    decr={decr} incr={incr} quantity={item.quantity}
+                                                                    decr={decr} incr={incr}
                                                                     content={item.content} quantity={item.quantity}
                                                                     price={item.price} receipt={props.receipt} index={i}
                                                                     removeFromCart={props.removeFromCart}/>)}
@@ -86,7 +89,7 @@ function mapStateToProps(state) {
 const mapDispatchToProps = (dispatch) => {
     return {
         dispatch,
-        ...bindActionCreators({addToCart, removeFromCart}, dispatch)
+        ...bindActionCreators({addToCart, removeFromCart, addToHistory}, dispatch)
     }
 }
 

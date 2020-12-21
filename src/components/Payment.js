@@ -3,7 +3,7 @@ import "../css/Payment.css";
 import Card from "react-bootstrap/Card";
 import {Link} from "react-router-dom";
 import {connect} from "react-redux";
-import {deliveryAddress, emailAddress} from "../actions/actions"
+import {addToHistory, deliveryAddress, emailAddress,clearCart} from "../actions/actions"
 import Checkout from "./Checkout";
 import Form from 'react-bootstrap/Form'
 import Button from "react-bootstrap/Button";
@@ -13,14 +13,15 @@ import ToggleButtonGroup from "react-bootstrap/ToggleButtonGroup";
 import ToggleButton from "react-bootstrap/ToggleButton";
 
 function Payment(props) {
-    const addInfo = (event) => {
-        // Do nothing.
 
+
+    const addInfo = ()=> {
+        let orderNumber = props.currentOrderNumber  ;
+        props.addToHistory({[orderNumber.toString()]:props.cart});
     }
     const [value, setValue] = useState([]);
     console.log(value)
     return (<>
-            <NavbarApp disabled={true}/>
             <div className={"paymentContainer"}>
                 <Link to={"Menu"} style={{marginBottom: "100px"}}>
                     <Button variant="primary" type="submit">
@@ -77,8 +78,8 @@ function Payment(props) {
                                 </Form.Group></div></>
                             }
                         </div>
-                        <Link to={"receipt"}>
-                            <Button variant="primary" type="submit" onClick={addInfo}
+                        <Link to={"receipt"} onClick={addInfo}>
+                            <Button variant="primary" type="submit"
                                     disabled={props.cart.length === 0 || !props.email.length > 0 || !props.deliveryAddress.length > 0}>
                                 Pay
                             </Button>
@@ -100,7 +101,8 @@ function mapStateToProps(state) {
     return {
         email: state.cartReducer.email,
         delivery_Address: state.cartReducer.delivery_address,
-        cart: state.cartReducer.cart
+        cart: state.cartReducer.cart,
+        currentOrderNumber: state.cartReducer.currentOrderNumber,
     }
 }
 
@@ -111,6 +113,12 @@ function mapDispatchToProps(dispatch) {
         },
         deliveryAddress: (item) => {
             dispatch(deliveryAddress(item))
+        },
+        addToHistory: (item) => {
+            dispatch(addToHistory(item))
+        },
+        clearCart: () => {
+            dispatch(clearCart())
         }
 
     }

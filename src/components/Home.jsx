@@ -20,7 +20,6 @@ function Home(props) {
     }
     return (
         <div className="App">
-            <NavbarApp/>
             <div className="LandingScreen">
 
                 <Jumbotron className={"imagetron"} >

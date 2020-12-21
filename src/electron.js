@@ -1,7 +1,7 @@
 const { app, BrowserWindow } = require('electron')
 const path = require("path");
 const isDev = require("electron-is-dev");
-function createWindow () {
+function   createWindow () {
     const win = new BrowserWindow({
         width: 1300,
         height: 1300,

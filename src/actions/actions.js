@@ -7,6 +7,13 @@ export function addToCart(item){
     }
 }
 
+export function addToHistory(item){
+    return {
+        type: 'ADD_HISTORY',
+        item
+    }
+}
+
 export function removeFromCart(item) {
     return {
         type: 'REMOVE_FROM_CART',
@@ -14,11 +21,15 @@ export function removeFromCart(item) {
     }
 }
 
-
 export function emailAddress(item) {
     return {
         type: 'EMAIL_ADDRESS',
         item
+    }
+}
+export function clearCart() {
+    return {
+        type: 'CLEAR_CART'
     }
 }
 
