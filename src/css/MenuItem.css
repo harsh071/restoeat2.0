@@ -8,7 +8,7 @@
 }
 .listItem{
     display: grid;
-    grid-template-columns: 20% 50% 20%;
+    grid-template-columns: 20% 50% auto;
     height: fit-content;
     text-align: left;
 
@@ -34,4 +34,15 @@
 .menuTitle{
     width: 100%;
     height: fit-content;
+}
+
+.viewButton{
+    background: black;
+    color: white;
+    border: 0px;
+
+}
+.viewButton:hover{
+    background: white;
+    color:black;
 }

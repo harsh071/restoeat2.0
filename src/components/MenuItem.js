@@ -20,12 +20,14 @@ function MenuItem(props) {
     return (
         <>
         <ListGroup style={{width:"650px",alignItems:"center"}} onClick={show ? handleClose : handleShow}>
-
             <ListGroup.Item className={"listItemCont"} style={{minWidth:"290px", margin:"10px",width:"90%"}}>
                 <div className={"listItem"}>
                     <div className={"listContent"} style={{fontWeight:"bold"}}>{props.title}</div>
                     <div className={"listContent listContentDesc"}>{props.content}</div>
+                    <div>
                     <div className={"listContent listPrice"}>${props.price}</div>
+                    <Button className={"listContent viewButton"}  onClick={show ? handleClose : handleShow}>View</Button>
+                    </div>
                 </div>
             </ListGroup.Item>
 

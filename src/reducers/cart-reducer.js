@@ -14,6 +14,7 @@ const reducer = (state, action) => {
             orderHistory:[],
             cart: [],
             email:'',
+            password: '',
             delivery_address:'',
             loggedIn: false,
             currentOrderNumber: 112
@@ -65,6 +66,15 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 email:action.item
+
+            }
+        }
+        case 'CHANGE_PASSWORD': {
+
+
+            return {
+                ...state,
+                password:action.item
 
             }
         }

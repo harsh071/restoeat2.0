@@ -12,7 +12,7 @@ import _ from "lodash"
 function Menu(props) {
     const addToCart = (item) => {
         let result = false;
-
+        console.log(item )
         for (let i = 0; i < props.cartItems.length; i++) {
             if (item.title === props.cartItems[i].title) {
                 let tempItem = _.cloneDeep(props.cartItems[i])
@@ -35,6 +35,7 @@ function Menu(props) {
         }
 
     }
+
     return (
         <div className="Menu">
             <div className={"menuTitle"}>MENU ITEMS</div>
@@ -45,7 +46,7 @@ function Menu(props) {
                     {
                         props.menuItems.map((p, i) =>
                             <MenuItem key={i} id={p.id} content={p.content} title={p.title} quantity={p.quantity}
-                                      price={p.price}
+                                      price={p.price} orderStatus={p.orderStatus}
                                       addToCart={addToCart}/>
                         )
                     }

@@ -27,6 +27,12 @@ export function emailAddress(item) {
         item
     }
 }
+export function changePassword(item) {
+    return {
+        type: 'CHANGE_PASSWORD',
+        item
+    }
+}
 export function clearCart() {
     return {
         type: 'CLEAR_CART'

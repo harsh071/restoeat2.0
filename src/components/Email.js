@@ -1,7 +1,7 @@
 import React from 'react';
 import "../css/Email.css";
 import {connect} from "react-redux";
-import { emailAddress} from "../actions/actions"
+import { emailAddress, changePassword} from "../actions/actions"
 import Form from 'react-bootstrap/Form'
 function Email(props) {
 
@@ -16,7 +16,7 @@ function Email(props) {
                 </Form.Group>
                 <Form.Group controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Enter Password" />
+                    <Form.Control type="password" placeholder="Enter Password" onChange={(event) => props.changePassword(event.target.value)}/>
                 </Form.Group>
             </Form>
         </div>
@@ -26,6 +26,7 @@ function Email(props) {
 function mapStateToProps (state) {
     return {
         email: state.cartReducer.email,
+        password: state.cartReducer.password,
     }
 }
 
@@ -33,6 +34,9 @@ function mapDispatchToProps(dispatch){
     return {
         emailAddress: (item) => {
             dispatch(emailAddress(item))
+        },
+        changePassword: (item) => {
+            dispatch(changePassword(item))
         },
 
     }

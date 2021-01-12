@@ -60,7 +60,6 @@ function LoginModal(props) {
                         OR
                     </div>
                     {!emailArea ? <Button variant="primary" style={{width: "100%"}} onClick={() => enableArea()}>
-
                             CONTINUE WITH EMAIL
                         </Button> :
                         <Email/>
@@ -68,7 +67,7 @@ function LoginModal(props) {
                 </Modal.Body>
                 <Modal.Footer>
 
-                    <Button variant="primary" style={{width: "100%"}} onClick={()=>clickLogin()}>
+                    <Button variant="primary" style={{width: "100%"}} onClick={()=>emailArea ? clickLogin() : enableArea()}>
 
                         LOGIN
                     </Button>

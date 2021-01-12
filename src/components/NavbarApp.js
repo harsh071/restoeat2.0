@@ -40,7 +40,7 @@ function NavbarApp(props) {
         <div>
             {location.pathname !== "/receipt" && <Navbar expand="lg" variant={"dark"} style={{backgroundColor:"black"}}>
 
-                <Link to={'/'}><Navbar.Brand style={{backgroundColor:"black"}}>Dharti's International chicken</Navbar.Brand></Link>
+                <Link to={'/'}><Navbar.Brand style={{backgroundColor:"black"}}>RestoEAT</Navbar.Brand></Link>
 
 
                 <Navbar.Collapse id="basic-navbar-nav">
@@ -52,16 +52,23 @@ function NavbarApp(props) {
                                     </Link>
                                 </Navbar.Text>
                             </Nav>
+                            <Nav style={{backgroundColor:"black", borderLeft:"1px solid white"}} className="mr-auto">
+                                <Navbar.Text style={{margin:"0px 8px"}}>
+                                    <Link to={"/OrderHistory"}>
+                                        <>Order     History</>
+                                    </Link>
+                                </Navbar.Text>
+                            </Nav>
                             {!loggedIn ? <Navbar.Text style={{color:"white",cursor: "pointer",paddingTop:"0px",paddingBottom:"0px",paddingLeft: "15px",paddingRight: "15px",borderLeft:"1px solid white"}} onClick={() => clickAddress()}>
                                 <div style={{ padding:" 05px 12px", borderRadius:"10px"}}>Select Address.</div>
                             </Navbar.Text> : <></>}
                             <Nav style={{backgroundColor:"black",borderLeft:"1px solid white",borderRight:"1px solid white"}} className="mr-auto">
                                 <NavDropdown menuRole="menu" title={ <Navbar.Text style={{padding:"0px",height:"0px",color:"white"}}>ADMIN</Navbar.Text>} id="basic-nav-dropdown">
-                                    <NavDropdown.Item><Link to={"/OrderHistory"}>
-                                        <>Order History</>
-                                    </Link></NavDropdown.Item>
                                     <NavDropdown.Item><Link to={"/Inventory"}>
                                         <>Inventory</>
+                                    </Link></NavDropdown.Item>
+                                    <NavDropdown.Item><Link to={"/SalesTrend"}>
+                                        <>Sales Trend</>
                                     </Link></NavDropdown.Item>
                                 </NavDropdown>
                             </Nav>

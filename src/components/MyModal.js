@@ -13,10 +13,10 @@ function MyModal(props) {
                 </Modal.Header >
                 <Modal.Body>{props.content}</Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={props.handleClose}>
+                    <Button variant="danger" onClick={props.handleClose}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={props.handleSaveChanges}>
+                    <Button variant="dark" onClick={props.handleSaveChanges}>
                         Add To Cart
                     </Button>
                 </Modal.Footer>

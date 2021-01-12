@@ -48,9 +48,7 @@ function Home(props) {
                     <p>Life can be complicated but ordering food doesn't have to be. Let us take care of the details
                         while you focus on what really matters.
                     </p>
-                    <p>
-                        <Button variant="dark" style={{height: "50px", width: "150px", fontSize:"20px"}}>Learn more</Button>
-                    </p>
+
                 </Jumbotron>
                 <Jumbotron fluid style={{height: "fit-content", margin: 0, background: "black", color: "white"}}>
                     <h1>Popular Cuisines</h1>

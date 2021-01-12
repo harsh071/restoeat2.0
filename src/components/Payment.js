@@ -66,11 +66,11 @@ function Payment(props) {
                             </ToggleButtonGroup>
                             {value.length>0 && value[0] !==3  &&<><Form.Group controlId="formBasicPassword">
                                 <Form.Label>Credit Card Number</Form.Label>
-                                <Form.Control type="password" placeholder="Credit Card Number"/>
+                                <Form.Control type="text" placeholder="Credit Card Number"/>
                             </Form.Group>
                                 <div className={"card_info"}><Form.Group controlId="formBasicPassword">
                                 <Form.Label>Date</Form.Label>
-                                <Form.Control type="password" placeholder="DATE"/>
+                                <Form.Control type="date" placeholder="DATE"/>
                                 </Form.Group>
                                 <Form.Group controlId="formBasicPassword">
                                 <Form.Label>CVV</Form.Label>

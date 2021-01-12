@@ -9,6 +9,7 @@ import reducer from './reducers/index'
 import OrderHistoryPage from "./components/OrderHistoryPage";
 import Inventory from "./components/Inventory";
 import NavbarApp from "./components/NavbarApp";
+import SaleTrend from "./components/SaleTrend";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
                 <Route path="/receipt" exact component={Receipt}/>
                 <Route path="/OrderHistory" exact component={OrderHistoryPage}/>
                 <Route path="/Inventory" exact component={Inventory}/>
+                <Route path="/SalesTrend" exact component={SaleTrend}/>
 
             </BrowserRouter>
 

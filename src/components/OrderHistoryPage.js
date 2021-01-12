@@ -15,19 +15,25 @@ function OrderHistoryPage(props) {
     return (
         <div className="OrderHistory">
             <div className={"OrderHistoryTitle"} style={{background: "black"}}>ORDER HISTORY</div>
-            <div className={"OrderHistoryContainer"}>
-                <ListGroup>
-                    {
-                        props.orderHistory.map((p, i) => {
-                            let orderNumber = Object.keys(p)[0];
-                            console.log(p[orderNumber])
-                            return <OrderItem key={i} id={p.id} orders={p[orderNumber]} orderNumber={orderNumber}/>
-                            }
-                        )
-                    }
-                </ListGroup>
+            {props.orderHistory.length > 0 ? <div className={"OrderHistoryContainer"}>
+                    <ListGroup>
+                        {
+                            props.orderHistory.map((p, i) => {
+                                    let orderNumber = Object.keys(p)[0];
+                                    return <OrderItem key={i} id={p.id} orders={p[orderNumber]} orderNumber={orderNumber}/>
+                                }
+                            )
+                        }
+                    </ListGroup>
 
-            </div>
+                </div>
+                : <div style={{
+                    margin: "50px 65% 50px 35%",
+                    width: "400px",
+                    height: "fit-content",
+                    fontSize: "30px",
+                    fontWeight: "bold"
+                }}>NO ITEMS AVAILABLE</div>}
 
 
         </div>

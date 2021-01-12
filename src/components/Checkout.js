@@ -41,7 +41,7 @@ function Checkout(props) {
             }
         }
     }
-
+    console.log("CARTITEM", props.cartItems)
     return (
         <>
             <Card className={"checkout"} style={{width: '18rem'}}>
